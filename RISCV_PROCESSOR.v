@@ -35,6 +35,9 @@ module RISCV_PROCESSOR (
     wire [3:0] alu_control;
     wire branch, mem_read, mem_to_reg, mem_write, alu_src, reg_write;
 
+    // Data Memory for load/store
+    reg [31:0] data_memory [0:255];
+
     // Program Counter
     reg [31:0] program_counter;
     assign pc = program_counter;
@@ -72,9 +75,6 @@ module RISCV_PROCESSOR (
         .reg_write(reg_write),
         .alu_control(alu_control)
     );
-
-    // Data Memory for load/store
-    reg [31:0] data_memory [0:255]; 
 
 endmodule
 
